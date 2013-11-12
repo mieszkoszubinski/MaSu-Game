@@ -36,12 +36,20 @@ public class Menu extends BasicGameState{
 		
 		int posX = Mouse.getX();
 		int posY = Mouse.getY();
-
+// play now button
 		if((posX > 100 && posX < 311) && (posY > 209 && posY < 260)) {
 			if(Mouse.isButtonDown(0)) {
 				sbg.enterState(1);
 			}
 		}
+		
+// exit button 
+		if((posX > 100 && posX < 311) && (posY > 109 && posY < 160)) {
+			if(Mouse.isButtonDown(0)) {
+				System.exit(0);
+			}
+		}
+		
 	}
 	
 	public int getID(){
