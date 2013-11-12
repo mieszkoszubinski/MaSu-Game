@@ -24,10 +24,17 @@ public class Play extends BasicGameState{
 		Image[] walkDown =  {new Image("res/masusFront.png"), new Image("res/masusFront.png")};
 		Image[] walkLeft =  {new Image("res/masusLeft.png"), new Image("res/masusLeft.png")};
 		Image[] walkRight =  {new Image("res/masusRight.png"), new Image("res/masusRight.png")};
+		
+		movingUp = new Animation(walkUp, duration, false);
+		movingDown = new Animation(walkDown, duration, false);
+		movingLeft = new Animation(walkLeft, duration, false);
+		movingRight = new Animation(walkRight, duration, false);
+		masu = movingDown;
+		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-		g.drawString("This is the Play State!", 100, 100);
+		worldMap.draw(masuPositionX, masuPositionY);
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
