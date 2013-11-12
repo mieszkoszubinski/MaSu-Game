@@ -54,23 +54,54 @@ public class Play extends BasicGameState{
 		if(input.isKeyDown(Input.KEY_UP)) {
 			masu = movingUp;
 			masuPositionY +=delta *.1f;
+			if(masuPositionY > 162) {
+				masuPositionY = masuPositionY -=delta *.1f;
+			}
 		}
 		
 		if(input.isKeyDown(Input.KEY_DOWN)) {
 			masu = movingDown;
 			masuPositionY -=delta *.1f;
+			if(masuPositionY < -600) {
+				masuPositionY = masuPositionY +=delta *.1f;
+			}
+			
 		}
 		
 		if(input.isKeyDown(Input.KEY_LEFT)) {
 			masu = movingLeft;
 			masuPositionX +=delta *.1f;
+			if(masuPositionX > 324) {
+				masuPositionX = masuPositionX -=delta *.1f;
+			}
 		}
 		
 		if(input.isKeyDown(Input.KEY_RIGHT)) {
 			masu = movingRight;
 			masuPositionX -=delta *.1f;
+			if(masuPositionX < -840) {
+				masuPositionX = masuPositionX +=delta *.1f;
+			}
 		}
 		
+		//escape
+		
+		if(input.isKeyDown(Input.KEY_ESCAPE)) {
+			quit = true;
+		}
+		
+		// when the menu is up
+		if(quit == true) {
+			if (input.isKeyDown(Input.KEY_R)) {
+				quit = false;
+			}
+			if (input.isKeyDown(Input.KEY_M)) {
+				sbg.enterState(0);
+			}
+			if (input.isKeyDown(Input.KEY_Q)) {
+				System.exit(0);
+			}
+		}
 	}
 	
 	public int getID(){
