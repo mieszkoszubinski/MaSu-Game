@@ -49,6 +49,27 @@ public class Play extends BasicGameState{
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+		Input input = gc.getInput();
+		
+		if(input.isKeyDown(Input.KEY_UP)) {
+			masu = movingUp;
+			masuPositionY +=delta *.1f;
+		}
+		
+		if(input.isKeyDown(Input.KEY_DOWN)) {
+			masu = movingDown;
+			masuPositionY -=delta *.1f;
+		}
+		
+		if(input.isKeyDown(Input.KEY_LEFT)) {
+			masu = movingLeft;
+			masuPositionX +=delta *.1f;
+		}
+		
+		if(input.isKeyDown(Input.KEY_RIGHT)) {
+			masu = movingRight;
+			masuPositionX -=delta *.1f;
+		}
 		
 	}
 	
