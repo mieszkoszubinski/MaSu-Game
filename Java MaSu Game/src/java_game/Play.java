@@ -35,6 +35,17 @@ public class Play extends BasicGameState{
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		worldMap.draw(masuPositionX, masuPositionY);
+		masu.draw(shiftX,shiftY);
+		g.drawString("MaSu X: "+  masuPositionX + "\nMaSu Y: " + masuPositionY, 400, 20);
+		
+		if(quit == true) {
+			g.drawString("Resume (R)", 250 , 100);
+			g.drawString("Main Menu (M)", 250 , 150);
+			g.drawString("Quit Game (Q)", 250 , 200);
+			if(quit == false) {
+				g.clear();
+			}
+		}
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
