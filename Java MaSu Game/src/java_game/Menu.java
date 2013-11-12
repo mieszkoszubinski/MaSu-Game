@@ -8,42 +8,37 @@ public class Menu extends BasicGameState{
 	
 	public String mouse = "No input yet!";
 	
-	
-	Image face;
-	int faceX = 200;
-	int faceY = 200;
-	
-	
+
+	Image playNow;
+	Image exitGame;
 	public Menu(int state) {
 		
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-		face = new Image("res/happy_face.png");
+
+		
+		playNow = new Image("res/playNow.png");
+		exitGame = new Image("res/exitGame.png");
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-		g.drawImage(face, faceX, faceY);
-		g.fillOval(75, 100, 100, 100);
-		g.drawString("Play Now!", 80, 70);
+
+		g.drawString("Welcome to Masu's World!", 100, 50);
+		playNow.draw(100,100);
+		exitGame.draw(100,200);
+;
 		
 		
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 		
-		
-//		Input input = gc.getInput();
-//		if(input.isKeyDown(Input.KEY_UP)) {faceY -= 1;}
-//		if(input.isKeyDown(Input.KEY_DOWN)) {faceY += 1;}
-//		if(input.isKeyDown(Input.KEY_RIGHT)) {faceX += 1;}
-//		if(input.isKeyDown(Input.KEY_LEFT)) {faceX -= 1;}
-		
-		Input input = gc.getInput();
-		int xpos = Mouse.getX();
-		int ypos = Mouse.getY();
-		if((xpos>75 && xpos < 175)&&(ypos >160 && ypos < 260)) {
-			if (input.isMouseButtonDown(0)) {
+		int posX = Mouse.getX();
+		int posY = Mouse.getY();
+
+		if((posX > 100 && posX < 311) && (posY > 209 && posY < 260)) {
+			if(Mouse.isButtonDown(0)) {
 				sbg.enterState(1);
 			}
 		}
